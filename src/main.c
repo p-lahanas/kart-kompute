@@ -1,15 +1,28 @@
 #include <avr/io.h>
 #include <util/delay.h>
+#include <stdlib.h>
+#include "lib/HD44780/hd44780.h"
 
-int main()
+
+int main (void)
 {
-    // Set built-in LED pin as output
-    DDRB |= (1 << DDB5);
+    lcd_init();
+
     while (1) {
-        PORTB |=  (1 << PB5);   // LED on
-        _delay_ms(500);
-        PORTB &= ~(1 << PB5);   // LED off
-        _delay_ms(500);
+
+        lcd_clrscr();
+        lcd_puts("Hello World...");   
+    
+        lcd_goto(40);                    //Position 40 is the start of line 2
+        char digit[1];
+        for (int i=0;i<16;i++) {
+            _delay_ms(250);
+            itoa(i,digit,16);
+            lcd_puts(digit);
+        }
+
     }
-    return 0;
+
+ 
+    return(0);
 }
