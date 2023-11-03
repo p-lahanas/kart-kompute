@@ -1,7 +1,7 @@
 #include <avr/io.h>
 #include <util/delay.h>
 #include <stdlib.h>
-#include "lib/HD44780/hd44780.h"
+#include "drivers/HD44780/hd44780.h"
 
 
 int main (void)
@@ -11,7 +11,7 @@ int main (void)
     while (1) {
 
         lcd_clrscr();
-        lcd_puts("Hello World...");   
+        lcd_puts("Hello World 2...");   
     
         lcd_goto(40);                    //Position 40 is the start of line 2
         char digit[1];

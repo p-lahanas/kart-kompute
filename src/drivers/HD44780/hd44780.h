@@ -7,7 +7,7 @@ Version:   1.11
 #ifndef HD44780_H
 #define HD44780_H
 
-#include "../configs/hd44780_settings.h"
+#include "hd44780_settings.h"
 #include "inttypes.h"
 
 //LCD Constants for HD44780
@@ -39,15 +39,15 @@ Version:   1.11
 #define LCD_BUSY                7    // DB7: LCD is busy
 
 
-void lcd_init();
+void lcd_init(void);
 void lcd_command(uint8_t cmd);
 
-void lcd_clrscr();
-void lcd_home();
+void lcd_clrscr(void);
+void lcd_home(void);
 void lcd_goto(uint8_t pos);
 
 #if RW_LINE_IMPLEMENTED==1
-uint8_t lcd_getc();
+uint8_t lcd_getc(void);
 #endif
 
 void lcd_putc(char c);
