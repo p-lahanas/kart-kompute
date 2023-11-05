@@ -10,9 +10,6 @@
 #endif
 
 #define he_eicra_set() HE_EICRA_REG |= HE_EICRA_VAL
-#define he_eimsk_int0_enable() HE_EIMSK_REG |= HE_EIMSK_INT0_MASK
-#define he_eimsk_int0_disable() HE_EIMSK_REG &= ~HE_EIMSK_INT0_MASK
-
 
 void he_init(void)
 {
