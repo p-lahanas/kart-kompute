@@ -73,7 +73,8 @@ add_compile_options(
 
 # Headers
 set(PROJECT_INCLUDE_DIRECTORIES
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/configs)
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/configs
+    ${CMAKE_CURRENT_SOURCE_DIR}/src/drivers/includes)
 
 # Sources
 file(GLOB_RECURSE SRC_FILES "src/*.c") # Load all files in src folder
