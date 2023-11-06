@@ -2,26 +2,27 @@
 #include <util/delay.h>
 #include <stdlib.h>
 #include "hd44780.h"
-#include "app/tacho.h"
+#include "app/kartstats.h"
 
 int main(void)
 {
+    kartstats_init(); 
     lcd_init();
-    tacho_init();
     char digit[6];
     DDRB |= _BV(PINB5);
     
     while (1)
     {
-
+        kartstats_update();
         lcd_clrscr();
-        lcd_puts("RPM: ");
+        lcd_puts("Speed: ");
 
         lcd_goto(40); // Position 40 is the start of line 2
         
-        ultoa(tacho_get_rpm(), digit, 10);
+        ultoa(kartstats_get_speed(), digit, 10);
         lcd_puts(digit);
-        _delay_ms(1000);
+        lcd_puts("km/hr");
+        _delay_ms(300);
     }
     
 
